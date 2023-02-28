@@ -1,0 +1,135 @@
+﻿@model news
+
+@*@{ 
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>descrip</title>
+</head>
+<body style="margin-top:100px">
+    <center>
+        <img src="@Model.photo" alt="Alternate Text" style="width:1000px;height:577px" />
+    </center>
+    <table class="table">
+        @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.admin.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.catalog.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bref)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.state)
+            </th>
+            <th></th>
+        </tr>*@
+
+
+
+
+
+        @*<tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.admin.username)
+            </td>
+        </tr>*@
+
+
+        <tr>
+            <td colspan="3">
+                <center> @Html.DisplayFor(modelItem => Model.title)</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.bref)
+            </td>
+        </tr>
+        <tr>
+
+
+            <td colspan="3">
+                <center>  @Html.DisplayFor(modelItem => Model.desc)</center>
+            </td>
+
+        </tr>
+        @*<tr>
+            <td>
+
+            </td>
+        </tr>*@
+        @*<tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => Model.state)
+            </td>
+        </tr>*@
+        @*<tr>
+            <td></td>
+
+
+            <td>
+                 @TempData["comment"]
+
+            </td>
+            <td>
+                @TempData["count"] 
+            </td>
+        </tr>*@
+        <tr>
+            <td></td>
+
+
+            <td>
+                <a href="/comment_news/Index/@Model.id"><i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image:url('https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/uO5x9_FkOtR.png');background-position:0 -213px;background-size:auto;width:18px;height:18px;background-repeat:no-repeat;display:inline-block"></i> :@TempData["comment"]</a>
+
+            </td>
+            <td>
+                <a href="/like_news/Create/@Model.id">
+                    @if (ViewBag.value == "true")
+                    {<i data-visualcompletion="css-img" class="x1b0d499 xi3auck" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yK/r/H6IBF1RX3vl.png&quot;); background-position: 0px -232px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i>}
+                    else
+                    {<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image:url('https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/uO5x9_FkOtR.png');background-position:0 -251px;background-size:auto;width:18px;height:18px;background-repeat:no-repeat;display:inline-block"></i>} :@TempData["count"]
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Catalog: @Html.DisplayFor(modelItem => Model.catalog.name)
+            </td>
+
+            <td> date: @Html.DisplayFor(modelItem => Model.date)</td>
+            <td>
+                Other: @Html.DisplayFor(modelItem => Model.user.username)
+            </td>
+        </tr>
+
+
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@model DEmo.Models.comment_news
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>comment_news</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.news.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.news.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

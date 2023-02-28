@@ -1,0 +1,93 @@
+﻿@model IEnumerable<DEmo.Models.news>
+
+@{
+    ViewBag.Title = "blogs";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+
+@*<h2>blogs</h2>*@
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table" style="margin-top:100px;width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.admin.username)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.catalog.name)*@
+            Catalog
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bref)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.desc)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        
+        @*<th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>*@
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/Home/descrip/@item.id"><img src="@item.photo" alt="Alternate Text" style="width:200px;height:200px" /></a>
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.admin.username)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.catalog.name)
+        </td>
+        <td>
+            <a href="/Home/userprofile/@item.user.id"> @Html.DisplayFor(modelItem => item.user.username)</a>
+            @*@Html.DisplayFor(modelItem => item.user.username)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bref)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.desc)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+
+        @*<td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>*@
+        <td>
+            @*<a href="/Home/userprofile/@item.id">عرض الملف الشخصي </a>*@
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |*@
+            @Html.ActionLink("Details", "descrip", new { id = item.id })||
+            @Html.ActionLink("عرض الملف الشخصي", "userprofile", new { id = item.user.id })
+            @*<a href="/news/Detalis/@item.id">Detalis</a>*@
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+
+        </td>
+    </tr>
+}
+
+</table>

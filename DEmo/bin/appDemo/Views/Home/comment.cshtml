@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DEmo.Models.comment>
+
+@{
+    ViewBag.Title = "comment";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+
+
+
+<p style="margin-top:100px">
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comment1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user1.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comment1)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Add Comment", "Create", new {id=ViewBag.id})

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DEmo.Models.comment_news>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+    var id = ViewBag.id;
+}
+
+
+
+<div style="margin-top:100px">
+
+</div>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.news.title)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.user.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.news.title)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.user.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comments)
+            </td>
+            <td>
+
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+    <tr><th>@Html.ActionLink("Add comments", "Create", new { id = id })</th></tr>
+
+</table>
+

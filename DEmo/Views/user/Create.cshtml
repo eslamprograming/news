@@ -1,0 +1,188 @@
+﻿@model user
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>RegistrationForm_v3 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="`~/Register_design/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/Register_design/css/style.css">
+    <style>
+        #div:hover {
+            background-color: #ff7106;
+            color: black;
+            font-size: 25px;
+        }
+
+        .div {
+            text-align: center;
+            padding: 3%;
+            border: thin solid black;
+        }
+
+        .input {
+            display: none;
+        }
+
+        .label {
+            cursor: pointer;
+        }
+
+        #imageName {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+   
+   
+
+    <div class="wrapper" style="background-color:#ff7d00">
+       
+        <div class="inner">
+            
+            <form method="post" enctype="multipart/form-data">
+                <h3>@TempData["mail"]</h3>
+                <h3>Registration Form</h3>
+
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        @*<label for="">Username:</label>*@
+                        @Html.LabelFor(n => n.username)
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            @*<input type="text" class="form-control">*@
+                            @Html.TextBoxFor(n => n.username, new { @class = "form-control" })
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(n => n.username)</div>
+                    </div>
+
+                    <div class="form-wrapper">
+                        @*<label for="">E-mail:</label>*@
+                        @Html.LabelFor(n => n.mail)
+                        <div class="form-holder">
+                            <i style="font-style: normal; font-size: 15px;"></i>
+                            @*<input type="text" class="form-control">*@
+                            @Html.TextBoxFor(n => n.mail, new { @class = "form-control" })
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(n => n.mail)</div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        @*<label for="">Password:</label>*@
+                        @Html.LabelFor(n => n.password)
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            @*<input type="password" class="form-control" placeholder="********">*@
+                            @Html.PasswordFor(n => n.password, new { placeholder = "*********", @class = "form-control" })
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(n => n.password)</div>
+
+                    </div>
+                    <div class="form-wrapper">
+                        @*<label for="">Repeat Password:</label>*@
+                        @Html.LabelFor(n => n.confirm_password)
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            @Html.PasswordFor(n => n.confirm_password, new { placeholder = "*********", @class = "form-control" })
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(n => n.confirm_password)</div>
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        @*<label for="">category:</label>*@
+                        @Html.LabelFor(n => n.catalog)
+
+                        <div>
+                            @Html.DropDownListFor(n => n.catalog_id, (SelectList)ViewBag.catalog_id, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    @*<div class="form-wrapper">*@
+                    <div class="form-wrapper">
+                        @*<label for=""> Age:</label>*@
+                        @Html.LabelFor(n => n.age)
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            @*<input type="text" class="form-control">*@
+                            @Html.TextBoxFor(n => n.age, new { @class = "form-control" })
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(n => n.age)</div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        @*<label for="">Address:</label>*@
+                        @Html.LabelFor(n => n.address)
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            @*<input type="text" class="form-control">*@
+                            @Html.TextBoxFor(n => n.address, new { @class = "form-control" })
+
+                        </div>
+                        <div>@Html.ValidationMessageFor(n => n.address)</div>
+
+                    </div>
+                    <div class="form-wrapper">
+
+                        <div class="div">
+                            <label class="label" for="inputTag">
+                                Select Image <br />
+                                <i class="fa fa-2x fa-camera"></i>
+                                <input class="input" id="inputTag" type="file" name="img" />
+                                <br />
+                                <span id="imageName"></span>
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div>
+                    <input type="submit" value="save" class="form-control" id="div" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div></div>
+    <script>
+        let input = document.getElementById("inputTag");
+        let imageName = document.getElementById("imageName")
+
+        input.addEventListener("change", () => {
+            let inputImage = document.querySelector("input[type=file]").files[0];
+
+            imageName.innerText = inputImage.name;
+        })
+    </script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

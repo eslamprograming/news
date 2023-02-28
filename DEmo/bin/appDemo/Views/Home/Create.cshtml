@@ -1,0 +1,41 @@
+﻿
+@model DEmo.Models.comment
+
+@{
+    ViewBag.Title = "comment";
+}
+
+<div style="margin-top:100px"></div>
+<h2>comment</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>comment</h4>
+        <hr />
+       
+        <input type="hidden" value="@ViewBag.id" name="user_id" />
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comment1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comment1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comment1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Cpmment" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "userprofile", new {id=ViewBag.id})
+</div>

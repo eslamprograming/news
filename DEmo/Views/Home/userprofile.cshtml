@@ -1,0 +1,116 @@
+﻿@model DEmo.Models.user
+
+@{
+    ViewBag.Title = "userprofile";
+}
+
+<div style="margin-top:100px">
+
+    
+
+    <center>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                @Html.DisplayNameFor(model => model.admin.username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.admin.username)
+            </dd>*@
+            <dt>
+                @Html.DisplayNameFor(model => model.photo)
+            </dt>
+
+            <dd>
+                <img src="@Model.photo" class="img-circle" alt="Alternate Text" style="width:200px;height:200px"/>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.username)
+            </dd>
+
+
+            <dt>
+                @*@Html.DisplayNameFor(model => model.catalog.name)*@
+                Catalog
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.catalog.name)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mail)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.age)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.age)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.like_id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.like_id)
+            </dd>*@
+
+        </dl>
+    </center>
+</div>
+<!--<p>-->
+    @*@Html.ActionLink("like", "like", new { id = Model.id }) |
+    @Html.ActionLink("comment", "comment", new { id = Model.id }) |*@
+    
+<!--</p>-->
+<table style="width:100%;position:center">
+    <tr>
+        <th>@Html.ActionLink("Back to List", "blogs")</th><th style="width:500px"></th><th><a href="/Home/comment/@Model.id">Comments<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image:url('https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/uO5x9_FkOtR.png');background-position:0 -213px;background-size:auto;width:18px;height:18px;background-repeat:no-repeat;display:inline-block"></i> : @ViewBag.commentcount</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/Home/like/@Model.id">Like @if (ViewBag.value == "true") { <i data-visualcompletion="css-img" class="x1b0d499 xi3auck" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yK/r/H6IBF1RX3vl.png&quot;); background-position: 0px -232px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i>}
+else
+{<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image:url('https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/uO5x9_FkOtR.png');background-position:0 -251px;background-size:auto;width:18px;height:18px;background-repeat:no-repeat;display:inline-block"></i>}: @ViewBag.likecount</a></th>
+    </tr>
+</table>
+
+

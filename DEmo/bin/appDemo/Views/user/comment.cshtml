@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DEmo.Models.comment>
+
+@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>comment</title>
+</head>
+<body style=" background-image: url('../../section.jpg'); background-repeat: no-repeat;height:100%;margin-top:100px">
+    
+    <center class="table-hover">
+        <h3>@ViewBag.commentcount</h3>
+
+        <table class="table-hover" style="width:50%" border="1">
+            @*<tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.user.username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.user1.username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.comment1)
+                </th>
+                <th></th>
+            </tr>*@
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.user.username)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.user1.username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.comment1)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                        @Html.ActionLink("Delete", "Deletecomment", new { id=item.id_user })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </center>
+</body>
+</html>

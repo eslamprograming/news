@@ -1,0 +1,105 @@
+﻿@model DEmo.Models.user
+
+@{
+    ViewBag.Title = "userprofile";
+}
+
+<div style="margin-top:120px">
+
+    <h2>userprofile</h2>
+
+    <center>
+        <h4>user</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.admin.username)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.admin.username)
+                </dd>*@
+            <dt>
+                @Html.DisplayNameFor(model => model.photo)
+            </dt>
+
+            <dd>
+                <img src="@Model.photo" class="img-circle" alt="Alternate Text" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.username)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.catalog.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.catalog.name)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mail)
+            </dd>
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.password)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.password)
+                </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.age)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.age)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.like_id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.like_id)
+                </dd>*@
+
+        </dl>
+    </center>
+</div>
+<p>
+    @Html.ActionLink("like", "like", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "blogs")
+</p>
